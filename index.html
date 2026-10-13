@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#141817" />
+  <meta name="description" content="Taiwan Family Trip 2026 — Taipei & Taichung, 2–9 December." />
+  <title>Taiwan Family Trip 2026</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f4f3ef;
+      --surface:rgba(255,255,255,.76);
+      --surface-solid:#fff;
+      --ink:#17201d;
+      --muted:#69716e;
+      --line:rgba(23,32,29,.10);
+      --green:#1f6a5b;
+      --green-2:#88b6a8;
+      --coral:#dc775a;
+      --gold:#d3a54c;
+      --blue:#5778a5;
+      --shadow:0 18px 55px rgba(31,43,38,.10);
+      --radius:24px;
+      --safe-bottom:max(18px, env(safe-area-inset-bottom));
+    }
+    [data-theme="dark"]{
+      --bg:#101311;
+      --surface:rgba(28,33,30,.78);
+      --surface-solid:#1a1f1c;
+      --ink:#f5f6f3;
+      --muted:#aab2ad;
+      --line:rgba(255,255,255,.10);
+      --green:#79c0ab;
+      --green-2:#406f63;
+      --coral:#ef9b7f;
+      --gold:#e6bd68;
+      --blue:#86a4ce;
+      --shadow:0 18px 55px rgba(0,0,0,.28);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"Manrope","Noto Sans TC",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at 10% 5%, rgba(136,182,168,.18), transparent 28%),
+        radial-gradient(circle at 95% 12%, rgba(220,119,90,.15), transparent 25%),
+        var(--bg);
+      color:var(--ink);
+      line-height:1.55;
+      letter-spacing:-.012em;
+    }
+    button,a,input{font:inherit}
+    a{color:inherit;text-decoration:none}
+    button{color:inherit}
+    .app{max-width:1120px;margin:auto;padding:0 18px 110px}
+    .glass{
+      background:var(--surface);
+      border:1px solid var(--line);
+      backdrop-filter:blur(18px) saturate(1.25);
+      -webkit-backdrop-filter:blur(18px) saturate(1.25);
+      box-shadow:var(--shadow);
+    }
+
+    /* HERO */
+    .hero{
+      margin:18px auto 12px;
+      min-height:430px;
+      border-radius:34px;
+      position:relative;
+      overflow:hidden;
+      color:#fff;
+      background:
+        linear-gradient(115deg,rgba(8,21,18,.90),rgba(25,73,63,.78) 48%,rgba(129,72,53,.70)),
+        url("https://images.unsplash.com/photo-1508248467877-aec1b08de376?auto=format&fit=crop&w=1800&q=82") center/cover;
+      box-shadow:0 26px 70px rgba(20,28,25,.18);
+    }
+    .hero:after{
+      content:"";
+      position:absolute;inset:auto -80px -120px auto;
+      width:380px;height:380px;border-radius:50%;
+      background:rgba(255,255,255,.08);
+      filter:blur(2px)
+    }
+    .hero-inner{position:relative;z-index:1;padding:34px;display:flex;flex-direction:column;justify-content:space-between;min-height:430px}
+    .topline{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800}
+    .brand-mark{
+      width:38px;height:38px;border-radius:14px;display:grid;place-items:center;
+      background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2)
+    }
+    .hero-actions{display:flex;gap:8px}
+    .icon-btn{
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(255,255,255,.12);color:#fff;
+      width:42px;height:42px;border-radius:14px;display:grid;place-items:center;
+      cursor:pointer
+    }
+    .hero-copy{max-width:720px}
+    .kicker{text-transform:uppercase;letter-spacing:.16em;font-size:.74rem;font-weight:800;opacity:.72}
+    h1{font-size:clamp(2.65rem,8vw,6rem);line-height:.94;margin:10px 0 18px;letter-spacing:-.065em}
+    .hero-copy p{font-size:clamp(1rem,2.5vw,1.18rem);max-width:620px;opacity:.92;margin:0}
+    .hero-stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+    .stat{
+      min-width:120px;padding:11px 14px;border-radius:18px;
+      background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18)
+    }
+    .stat strong{display:block;font-size:1rem}
+    .stat span{font-size:.78rem;opacity:.72}
+
+    /* TOP CONTROLS */
+    .sticky{
+      position:sticky;top:0;z-index:30;
+      margin:12px 0 18px;padding:10px;border-radius:20px
+    }
+    .controls{display:flex;gap:9px;align-items:center;overflow:auto;scrollbar-width:none}
+    .controls::-webkit-scrollbar{display:none}
+    .search{
+      min-width:220px;flex:1;display:flex;align-items:center;gap:9px;
+      padding:10px 12px;border:1px solid var(--line);border-radius:14px;background:var(--surface-solid)
+    }
+    .search input{border:0;outline:0;background:transparent;color:var(--ink);width:100%;font-size:.9rem}
+    .chip{
+      flex:0 0 auto;border:1px solid var(--line);background:var(--surface-solid);
+      border-radius:999px;padding:9px 13px;font-size:.82rem;font-weight:700;cursor:pointer
+    }
+    .chip.active{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+    /* SUMMARY */
+    .overview-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:14px}
+    .panel{border-radius:var(--radius);padding:20px}
+    .panel h2{font-size:1rem;margin:0 0 12px}
+    .flight-row,.hotel-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 0;border-top:1px solid var(--line)}
+    .flight-row:first-of-type,.hotel-row:first-of-type{border-top:0}
+    .big-code{font-weight:800;font-size:1.22rem}
+    .sub{font-size:.82rem;color:var(--muted)}
+    .route-line{flex:1;height:1px;background:var(--line);position:relative}
+    .route-line:before,.route-line:after{content:"";position:absolute;top:-3px;width:7px;height:7px;border-radius:50%;background:var(--green)}
+    .route-line:before{left:0}.route-line:after{right:0}
+    .notice{
+      margin:14px 0 24px;padding:16px 18px;border-radius:20px;
+      display:flex;gap:12px;align-items:flex-start
+    }
+    .notice .dot{width:10px;height:10px;border-radius:50%;background:var(--coral);margin-top:7px;flex:0 0 auto}
+
+    /* DAYS */
+    .section-head{display:flex;justify-content:space-between;align-items:end;margin:34px 4px 12px}
+    .section-head h2{margin:0;font-size:1.55rem;letter-spacing:-.035em}
+    .section-head p{margin:0;color:var(--muted);font-size:.86rem}
+    .days{display:grid;gap:14px}
+    .day-card{
+      border-radius:28px;overflow:hidden;transition:transform .2s ease,box-shadow .2s ease
+    }
+    .day-card:hover{transform:translateY(-2px)}
+    .day-head{
+      padding:20px;display:flex;justify-content:space-between;gap:16px;align-items:center;cursor:pointer
+    }
+    .day-title{display:flex;align-items:center;gap:14px}
+    .date-badge{
+      width:58px;height:58px;border-radius:19px;display:grid;place-items:center;
+      background:linear-gradient(145deg,var(--green),#274f46);color:#fff;flex:0 0 auto
+    }
+    .date-badge strong{font-size:1.25rem;line-height:1}.date-badge span{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em}
+    .day-head h3{margin:0 0 3px;font-size:1.08rem}
+    .day-head p{margin:0;color:var(--muted);font-size:.83rem}
+    .toggle{
+      width:36px;height:36px;border-radius:12px;background:var(--surface-solid);
+      border:1px solid var(--line);display:grid;place-items:center;transition:transform .25s
+    }
+    .day-card.open .toggle{transform:rotate(180deg)}
+    .day-content{display:none;padding:0 20px 18px}
+    .day-card.open .day-content{display:block}
+    .timeline{position:relative}
+    .timeline:before{
+      content:"";position:absolute;left:84px;top:6px;bottom:6px;width:1px;background:var(--line)
+    }
+    .event{
+      display:grid;grid-template-columns:68px 1fr;gap:30px;position:relative;padding:14px 0
+    }
+    .event:before{
+      content:"";position:absolute;left:80px;top:24px;width:9px;height:9px;border-radius:50%;
+      background:var(--surface-solid);border:2px solid var(--green)
+    }
+    .time{font-size:.8rem;font-weight:800;color:var(--green);padding-top:2px}
+    .event-card{
+      padding:15px 16px;border:1px solid var(--line);border-radius:18px;background:var(--surface-solid)
+    }
+    .event-card.feature{background:linear-gradient(135deg,rgba(31,106,91,.10),rgba(220,119,90,.08))}
+    .event-card h4{margin:0 0 4px;font-size:.98rem}
+    .event-card p{margin:4px 0;color:var(--muted);font-size:.86rem}
+    .meta-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+    .tag{font-size:.72rem;font-weight:750;border-radius:999px;padding:5px 8px;background:rgba(31,106,91,.10);color:var(--green)}
+    .tag.walk{background:rgba(211,165,76,.15);color:#9d721e}
+    .tag.taxi{background:rgba(87,120,165,.13);color:var(--blue)}
+    .tag.fixed{background:rgba(220,119,90,.13);color:var(--coral)}
+    .links{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+    .link-btn{
+      border:1px solid var(--line);background:var(--surface);padding:7px 10px;border-radius:11px;
+      font-size:.77rem;font-weight:750;cursor:pointer
+    }
+    .route-box{
+      margin-top:9px;padding:10px 11px;border-radius:13px;background:rgba(31,106,91,.07);
+      border:1px solid rgba(31,106,91,.10);font-size:.8rem;color:var(--muted)
+    }
+
+    /* BOTTOM DOCK */
+    .dock{
+      position:fixed;left:50%;bottom:var(--safe-bottom);transform:translateX(-50%);
+      width:min(620px,calc(100% - 28px));z-index:50;padding:8px;border-radius:21px;
+      display:grid;grid-template-columns:repeat(4,1fr);gap:5px
+    }
+    .dock button{
+      border:0;background:transparent;padding:8px 4px;border-radius:14px;cursor:pointer;
+      display:flex;flex-direction:column;align-items:center;gap:3px;font-size:.68rem;font-weight:700
+    }
+    .dock button:hover{background:rgba(127,127,127,.09)}
+    .dock svg{width:20px;height:20px}
+
+    .toast{
+      position:fixed;left:50%;bottom:92px;transform:translate(-50%,20px);
+      background:var(--ink);color:var(--bg);padding:10px 14px;border-radius:999px;
+      font-size:.8rem;font-weight:700;opacity:0;pointer-events:none;transition:.25s;z-index:60
+    }
+    .toast.show{opacity:1;transform:translate(-50%,0)}
+    .hidden{display:none!important}
+    .empty{padding:28px;text-align:center;color:var(--muted)}
+
+    @media(max-width:780px){
+      .app{padding-left:12px;padding-right:12px}
+      .hero{margin-top:10px;border-radius:28px;min-height:470px}
+      .hero-inner{min-height:470px;padding:24px}
+      .overview-grid{grid-template-columns:1fr}
+      .sticky{border-radius:17px}
+      .search{min-width:190px}
+      .timeline:before{left:72px}
+      .event{grid-template-columns:57px 1fr;gap:25px}
+      .event:before{left:68px}
+    }
+    @media(max-width:480px){
+      h1{font-size:3.4rem}
+      .hero-stats{display:grid;grid-template-columns:1fr 1fr}
+      .stat{min-width:0}
+      .day-head{padding:16px}
+      .day-content{padding:0 14px 14px}
+      .timeline:before{display:none}
+      .event{display:block;padding:8px 0}
+      .event:before{display:none}
+      .time{margin:0 0 5px 5px}
+      .event-card{border-radius:16px}
+    }
+    @media print{
+      body{background:#fff}.hero{min-height:auto;background:#173d35!important}.hero-inner{min-height:auto}
+      .sticky,.dock,.hero-actions{display:none!important}.day-content{display:block!important}
+      .day-card,.panel,.notice{box-shadow:none;break-inside:avoid}.app{padding-bottom:20px}
+    }
+  </style>
+</head>
+<body>
+<div class="app">
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="topline">
+        <div class="brand"><div class="brand-mark">台</div><span>Taiwan 2026</span></div>
+        <div class="hero-actions">
+          <button class="icon-btn" id="themeBtn" aria-label="Toggle theme" title="Dark mode">◐</button>
+          <button class="icon-btn" id="shareHero" aria-label="Share trip" title="Share">↗</button>
+        </div>
+      </div>
+      <div class="hero-copy">
+        <div class="kicker">Family Escape · 2–9 December 2026</div>
+        <h1>Taipei<br>→ Taichung</h1>
+        <p>Good food, coffee, shopping and easy city moves — designed to feel relaxed, not rushed.</p>
+        <div class="hero-stats">
+          <div class="stat"><strong id="countdown">—</strong><span>days to go</span></div>
+          <div class="stat"><strong>8 days</strong><span>2 cities</span></div>
+          <div class="stat"><strong>3 travellers</strong><span>family trip</span></div>
+          <div class="stat"><strong>SQ878 / 879</strong><span>Singapore Airlines</span></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="sticky glass">
+    <div class="controls">
+      <label class="search" aria-label="Search itinerary">
+        <span>⌕</span>
+        <input id="searchInput" type="search" placeholder="Search food, places, shopping…" />
+      </label>
+      <button class="chip active" data-filter="all">All</button>
+      <button class="chip" data-filter="Taipei">Taipei</button>
+      <button class="chip" data-filter="Taichung">Taichung</button>
+      <button class="chip" data-filter="Food">Food</button>
+      <button class="chip" data-filter="Shopping">Shopping</button>
+    </div>
+  </div>
+
+  <section class="overview-grid">
+    <div class="panel glass">
+      <h2>✈︎ Flights</h2>
+      <div class="flight-row">
+        <div><div class="big-code">SQ878</div><div class="sub">2 Dec · 11:40</div></div>
+        <div class="route-line"></div>
+        <div style="text-align:right"><div class="big-code">TPE 16:20</div><div class="sub">SIN → Taipei</div></div>
+      </div>
+      <div class="flight-row">
+        <div><div class="big-code">SQ879</div><div class="sub">9 Dec · 17:35</div></div>
+        <div class="route-line"></div>
+        <div style="text-align:right"><div class="big-code">SIN 22:20</div><div class="sub">Taipei → Singapore</div></div>
+      </div>
+    </div>
+
+    <div class="panel glass">
+      <h2>⌂ Stays</h2>
+      <div class="hotel-row">
+        <div><strong>Solaria Taipei Ximen</strong><div class="sub">2–4 Dec · Ximending</div></div>
+        <a class="link-btn" href="https://solaria-taipei.nnr-h.com/" target="_blank">Hotel</a>
+      </div>
+      <div class="hotel-row">
+        <div><strong>La Vida Hotel</strong><div class="sub">4–9 Dec · Fengjia</div></div>
+        <a class="link-btn" href="https://www.lavidahotel.com.tw/en/" target="_blank">Hotel</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="notice glass">
+    <div class="dot"></div>
+    <div><strong>Taichung travel rule:</strong> walk within compact neighbourhoods; use taxi/Uber for cross-district legs. MRT only when it genuinely saves time.</div>
+  </div>
+
+  <div class="section-head">
+    <div><h2>Daily itinerary</h2><p>Tap a day to expand. Use search or filters above.</p></div>
+  </div>
+  <section class="days" id="days"></section>
+</div>
+
+<div class="dock glass">
+  <button id="expandBtn" title="Expand all">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"/></svg>
+    <span>Expand</span>
+  </button>
+  <button id="copyBtn" title="Copy trip summary">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+    <span>Copy</span>
+  </button>
+  <button id="shareBtn" title="Share">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.6 6.8-4.1M8.6 13.4l6.8 4.1"/></svg>
+    <span>Share</span>
+  </button>
+  <button onclick="window.print()" title="Print / Save PDF">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 9V2h12v7"/><rect x="6" y="14" width="12" height="8"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/></svg>
+    <span>Print</span>
+  </button>
+</div>
+<div class="toast" id="toast">Copied</div>
+
+<script>
+const days = [
+  {
+    date:"2 Dec", dow:"Wed", city:"Taipei", title:"Arrival + Ximending",
+    tags:["Taipei","Food","Shopping"],
+    events:[
+      ["11:40","SQ878 · Singapore → Taipei","Depart SIN 11:40 · arrive TPE Terminal 2 at 16:20.",[],null,null],
+      ["18:15–19:00","Check in · Solaria Ximen","6F, No. 88, Section 1, Zhonghua Road, Wanhua District.",["Hotel"],"https://solaria-taipei.nnr-h.com/",null],
+      ["19:30–20:30","天天利美食坊 Tiantianli","No. 1, Lane 32, Hanzhong Street. Try braised pork rice, oyster omelette, radish cake and fish-ball soup.",["Food","Walk"],null,"Tiantianli Taipei"],
+      ["20:30–22:00","Ximending shopping","BIRKENSTOCK 西寧店 · plain-me 西門 · 2nd STREET 西門.",["Shopping","Walk"],null,"Ximending Taipei"]
+    ]
+  },
+  {
+    date:"3 Dec", dow:"Thu", city:"Taipei", title:"Taipei 101 + Zhongshan + Event",
+    tags:["Taipei","Food","Coffee"],
+    events:[
+      ["07:30–08:30","Yong He Soy Milk","No. 30, Section 2, Hankou Street. Walk from Solaria.",["Food","Walk"],null,"No. 30 Section 2 Hankou Street Taipei"],
+      ["09:00–10:00","Simple Kaffa Sola · Taipei 101 88F","Coffee with an 88F view. Nearest MRT: Taipei 101 / World Trade Center (R03).",["Coffee","MRT"],"https://simplekaffa.com/journal/Simple-Kaffa-Sola","Taipei 101"],
+      ["10:00–11:00","Taipei 101 Observatory","Official observatory visit after Simple Kaffa. Separate paid ticket.",["Sightseeing"],"https://www.taipei-101.com.tw/en/observatory","Taipei 101 Observatory"],
+      ["12:15–13:30","Coffee Dumbo 登波咖啡","No. 25, Lane 49, Chifeng Street. Zhongshan R11/G14 + ~8–10 min walk.",["Coffee","Walk"],"https://www.coffeedumbo.tw/","Coffee Dumbo Taipei"],
+      ["13:30–14:30","福大山東蒸餃大王 Fuda","No. 11, Lane 140, Section 1, Zhongshan North Road. Dumplings, beef noodles, hot-and-sour soup.",["Food","Walk"],null,"福大山東蒸餃大王 Taipei"],
+      ["15:35–16:00","Jia Vin Bakery 佳賓餅家","No. 76-3, Xining South Road. Buy Coffee Nougat Crackers.",["Shopping","Food"],"https://www.jiavinbakery.com/","佳賓餅家 西門"],
+      ["16:35–17:00","Solaria → WHAT THE SPACE","Taxi / Uber direct so the family arrives comfortably before 17:00.",["Taxi"],null,null],
+      ["17:00–21:00","Family Event · WHAT THE SPACE","3F, No. 95, Minzu West Road, Datong District. Estimated attendance: up to 25.",["Fixed"],"https://reurl.cc/WGpjEx","3F No. 95 Minzu West Road Datong Taipei"]
+    ]
+  },
+  {
+    date:"4 Dec", dow:"Fri", city:"Taipei → Taichung", title:"Extra Taipei time + late HSR",
+    tags:["Taipei","Taichung","Shopping"],
+    events:[
+      ["08:00–09:30","Easy morning + checkout","Breakfast, pack, check out and leave luggage with Solaria.",["Hotel"],null,null],
+      ["09:30–14:45","Extra Taipei time","Keep this flexible for food, shopping or sightseeing; final stop should stay convenient for Ximending.",["Flexible"],null,null],
+      ["14:45–15:40","Collect luggage → Taipei Main","Return to Solaria and take a taxi directly to the THSR entrance.",["Taxi"],null,"Taipei Main Station"],
+      ["16:36","THSR Taipei → Taichung","Target service; reconfirm the exact December timetable when booking opens. Reserved Standard Class, 3 seats together.",["HSR"],"https://en.thsrc.com.tw/","Taipei Main Station"],
+      ["~17:42","Arrive HSR Taichung","Taxi / Uber directly to La Vida Hotel.",["Taxi"],null,"La Vida Hotel Taichung"],
+      ["19:15–22:00","Fengjia Night Market + NET","Dinner and shopping. NET 台中逢甲店: No. 420, Fuxing Road.",["Food","Shopping","Walk"],null,"NET 台中逢甲店"]
+    ]
+  },
+  {
+    date:"5 Dec", dow:"Sat", city:"Taichung", title:"Central District → West District",
+    tags:["Taichung","Food","Shopping"],
+    events:[
+      ["07:55–08:15","La Vida → Taichung Second Market","Taxi/Uber · ~5.6 km · ~15–20 min. MRT does not help this route.",["Taxi"],null,"Taichung Second Market"],
+      ["08:15–09:30","Taichung Second Market","No. 87, Section 2, Sanmin Road. Morning market food and local breakfast.",["Food"],null,"Taichung Second Market"],
+      ["09:30–09:45","Second Market → Miyahara","Walk · ~0.9 km · ~8–12 min. Taxi only if raining or tired.",["Walk"],null,"Miyahara Taichung"],
+      ["10:00–10:45","Miyahara 宮原眼科","No. 20, Zhongshan Road. Browse, dessert and gifts.",["Food","Shopping"],null,"Miyahara Taichung"],
+      ["10:45–12:00","Miyahara → Chin Chih Yuan + lunch","Walk within Central District. No. 170, Chenggong Road. Try crispy chicken-leg rice.",["Food","Walk"],"https://www.facebook.com/chinchihyuan1978/","范記金之園草袋飯"],
+      ["12:00–12:15","Chin Chih Yuan → Calligraphy Greenway","Taxi/Uber · roughly 2 km. Faster and simpler than MRT for three people.",["Taxi"],null,"Calligraphy Greenway Taichung"],
+      ["12:15–13:15","Calligraphy Greenway + Park Lane by CMP","Relaxed West District design, greenery and shopping cluster.",["Shopping","Walk"],null,"Park Lane by CMP Taichung"],
+      ["13:15–14:00","Chun Shui Tang 春水堂","Traditional pearl milk tea around Park Lane / CMP.",["Food"],"https://www.chunshuitang.com.tw/en/","Chun Shui Tang Park Lane Taichung"],
+      ["14:00–14:40","Shen Ji New Village 審計新村","Walk ~446 m from Calligraphy Greenway. Indie shops, gifts and photo spots.",["Shopping","Walk"],null,"Shen Ji New Village Taichung"],
+      ["15:00–16:00","MINIMAL","No. 16, Lane 133, Section 1, Meicun Road. Michelin-recognised ice cream.",["Food","Walk"],null,"MINIMAL Taichung"],
+      ["16:00–16:20","MINIMAL → La Vida","Taxi/Uber direct back to Fengjia.",["Taxi"],null,"La Vida Hotel Taichung"]
+    ]
+  },
+  {
+    date:"6 Dec", dow:"Sun", city:"Sun Moon Lake", title:"Sun Moon Lake day tour",
+    tags:["Taichung","Nature"],
+    events:[
+      ["07:35","Walk La Vida → Beacon Hotel","Pickup: No. 427, Fuxing Road, Xitun District.",["Walk"],null,"Beacon Hotel Taichung"],
+      ["08:00","Klook tour departs","Expected programme: Xiangshan Visitor Center, lunch, cruise/ferry, ropeway and Wenwu Temple, subject to operating conditions.",["Tour"],"https://www.klook.com/activity/12447-sun-moon-lake-adventure-one-day-tour-taichung/","Sun Moon Lake"],
+      ["~18:20","Return around Fengjia","Dinner around Fengjia, then walk back to La Vida.",["Food","Walk"],null,"Feng Chia Night Market"]
+    ]
+  },
+  {
+    date:"7 Dec", dow:"Mon", city:"Taichung", title:"Flexible day / weather backup",
+    tags:["Taichung","Flexible"],
+    events:[
+      ["Morning","If Sun Moon Lake was completed","Slow breakfast + remaining shopping, cafés and souvenirs.",["Flexible"],null,null],
+      ["Full day","If 6 Dec weather was poor","Use today as the Sun Moon Lake backup day.",["Tour","Fixed"],"https://www.klook.com/activity/12447-sun-moon-lake-adventure-one-day-tour-taichung/","Sun Moon Lake"]
+    ]
+  },
+  {
+    date:"8 Dec", dow:"Tue", city:"Taichung", title:"Final shopping + fresh pastries",
+    tags:["Taichung","Shopping","Food"],
+    events:[
+      ["10:30–11:00","La Vida → Top City Taichung","Taxi/Uber.",["Taxi"],null,"Top City Taichung"],
+      ["11:00–12:00","GU 台中大遠百店","B1, No. 251, Section 3, Taiwan Boulevard, Xitun District.",["Shopping"],null,"GU 台中大遠百店"],
+      ["12:00–16:30","Shopping + lunch + flexible time","Keep the afternoon relaxed.",["Shopping","Flexible"],null,null],
+      ["16:30–17:00","Head to HSR Taichung / Xinwuri","Taxi/Uber.",["Taxi"],null,"HSR Taichung Station"],
+      ["17:00–17:30","Chen Yun Pao Chuan 陳允寶泉 · Xinwuri","2F, No. 26, Gaotie East 1st Road. Buy 一口太陽餅 one day before departure for better freshness.",["Food","Shopping"],null,"陳允寶泉 新烏日"],
+      ["17:30–18:15","Return to La Vida","Taxi/Uber back to Fengjia.",["Taxi"],null,"La Vida Hotel Taichung"]
+    ]
+  },
+  {
+    date:"9 Dec", dow:"Wed", city:"Taichung → Singapore", title:"Departure day",
+    tags:["Taichung","Travel"],
+    events:[
+      ["08:00–09:30","Breakfast + final packing","Relaxed morning.",[],null,null],
+      ["10:15–10:45","Checkout → HSR Taichung","Taxi/Uber.",["Taxi"],null,"HSR Taichung Station"],
+      ["11:30–12:00","THSR Taichung → Taoyuan","Exact train to confirm when booking opens.",["HSR"],"https://en.thsrc.com.tw/","HSR Taoyuan Station"],
+      ["~12:45–13:20","Airport MRT A18 → TPE Terminal 2","Target airport arrival around 13:15–13:30.",["MRT"],null,"Taoyuan Airport Terminal 2"],
+      ["17:35","SQ879 · Taipei → Singapore","Depart TPE Terminal 2 · arrive Singapore 22:20.",["Flight"],null,null]
+    ]
+  }
+];
+
+const daysEl = document.getElementById("days");
+const toast = document.getElementById("toast");
+let activeFilter = "all";
+
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function tagClass(t){
+  if(t==="Walk") return "walk";
+  if(t==="Taxi") return "taxi";
+  if(t==="Fixed") return "fixed";
+  return "";
+}
+function mapsUrl(q){return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q)}
+function render(){
+  const q = document.getElementById("searchInput").value.trim().toLowerCase();
+  let html = "";
+  let visibleCount = 0;
+
+  days.forEach((d,i)=>{
+    const dayText = JSON.stringify(d).toLowerCase();
+    const matchesText = !q || dayText.includes(q);
+    const matchesFilter = activeFilter==="all" || d.city.includes(activeFilter) || d.tags.includes(activeFilter) ||
+      d.events.some(e => (e[3]||[]).includes(activeFilter));
+
+    if(!matchesText || !matchesFilter) return;
+    visibleCount++;
+
+    const isOpen = i < 2 ? " open" : "";
+    html += `<article class="day-card glass${isOpen}" data-index="${i}">
+      <div class="day-head" onclick="toggleDay(${i})">
+        <div class="day-title">
+          <div class="date-badge"><div><strong>${esc(d.date.split(" ")[0])}</strong><br><span>${esc(d.date.split(" ")[1])}</span></div></div>
+          <div><h3>${esc(d.title)}</h3><p>${esc(d.dow)} · ${esc(d.city)}</p></div>
+        </div>
+        <div class="toggle">⌄</div>
+      </div>
+      <div class="day-content"><div class="timeline">`;
+
+    d.events.forEach(e=>{
+      const [time,title,desc,tags,link,map] = e;
+      const feature = tags.includes("Fixed") ? " feature" : "";
+      html += `<div class="event">
+        <div class="time">${esc(time)}</div>
+        <div class="event-card${feature}">
+          <h4>${esc(title)}</h4>
+          <p>${esc(desc)}</p>
+          ${tags.length ? `<div class="meta-row">${tags.map(t=>`<span class="tag ${tagClass(t)}">${esc(t)}</span>`).join("")}</div>` : ""}
+          ${(link||map) ? `<div class="links">${link?`<a class="link-btn" href="${esc(link)}" target="_blank" rel="noopener">Open link ↗</a>`:""}${map?`<a class="link-btn" href="${mapsUrl(map)}" target="_blank" rel="noopener">Map ↗</a>`:""}</div>`:""}
+        </div>
+      </div>`;
+    });
+    html += `</div></div></article>`;
+  });
+
+  daysEl.innerHTML = html || `<div class="empty glass">No itinerary items match your search.</div>`;
+}
+
+window.toggleDay = function(index){
+  const card = document.querySelector(`.day-card[data-index="${index}"]`);
+  if(card) card.classList.toggle("open");
+};
+
+function showToast(msg){
+  toast.textContent = msg;
+  toast.classList.add("show");
+  setTimeout(()=>toast.classList.remove("show"),1800);
+}
+
+document.querySelectorAll(".chip").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    document.querySelectorAll(".chip").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    activeFilter = btn.dataset.filter;
+    render();
+  });
+});
+document.getElementById("searchInput").addEventListener("input",render);
+
+let allExpanded = false;
+document.getElementById("expandBtn").addEventListener("click",()=>{
+  allExpanded = !allExpanded;
+  document.querySelectorAll(".day-card").forEach(c=>c.classList.toggle("open",allExpanded));
+  document.querySelector("#expandBtn span").textContent = allExpanded ? "Collapse" : "Expand";
+});
+
+function tripText(){
+  return days.map(d=>{
+    const lines = d.events.map(e=>`${e[0]} — ${e[1]}: ${e[2]}`).join("\n");
+    return `${d.date} (${d.dow}) · ${d.title}\n${lines}`;
+  }).join("\n\n");
+}
+document.getElementById("copyBtn").addEventListener("click", async()=>{
+  try{await navigator.clipboard.writeText(tripText());showToast("Trip copied");}
+  catch(e){showToast("Copy not available");}
+});
+
+async function shareTrip(){
+  const data={title:"Taiwan Family Trip 2026",text:"Taipei + Taichung · 2–9 Dec 2026",url:location.href};
+  try{
+    if(navigator.share){await navigator.share(data)}
+    else{await navigator.clipboard.writeText(location.href);showToast("Link copied")}
+  }catch(e){}
+}
+document.getElementById("shareBtn").addEventListener("click",shareTrip);
+document.getElementById("shareHero").addEventListener("click",shareTrip);
+
+document.getElementById("themeBtn").addEventListener("click",()=>{
+  const root=document.documentElement;
+  const dark=root.dataset.theme==="dark";
+  root.dataset.theme=dark?"light":"dark";
+  localStorage.setItem("tw-theme",root.dataset.theme);
+});
+const savedTheme=localStorage.getItem("tw-theme");
+if(savedTheme) document.documentElement.dataset.theme=savedTheme;
+
+(function countdown(){
+  const target=new Date("2026-12-02T00:00:00+08:00");
+  const now=new Date();
+  const diff=Math.ceil((target-now)/(1000*60*60*24));
+  document.getElementById("countdown").textContent=diff>0?diff:(diff===0?"Today":"Trip time");
+})();
+
+render();
+</script>
+</body>
+</html>
