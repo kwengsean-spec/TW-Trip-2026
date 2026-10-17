@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta name="theme-color" content="#141817" />
   <meta name="description" content="Taiwan Family Trip 2026 — Taipei & Taichung, 2–9 December." />
-  <title>Taiwan Family Trip 2026</title>
+  <title>Taiwan Family Trip 2026 · Updated 17 Oct</title>
+  <meta name="site-version" content="2026.10.17-dec04-verified">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -228,6 +229,16 @@
       font-size:.8rem;font-weight:700;opacity:0;pointer-events:none;transition:.25s;z-index:60
     }
     .toast.show{opacity:1;transform:translate(-50%,0)}
+
+    .update-banner{margin:16px 0 20px;padding:17px 20px;border-radius:22px;display:flex;justify-content:space-between;align-items:center;gap:16px;border-color:rgba(31,106,91,.22)}
+    .update-banner .mark{display:inline-block;color:var(--green);font-size:.70rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;margin-bottom:5px}
+    .update-banner strong{font-size:.99rem;letter-spacing:-.025em}
+    .update-banner p{margin:5px 0 0;color:var(--muted);font-size:.83rem}
+    .update-banner a{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:13px;color:#fff;background:#1f6a5b;font-size:.82rem;font-weight:800}
+    .day-card.new-day{border:1px solid rgba(31,106,91,.38)}
+    .day-card.new-day .day-head{background:linear-gradient(110deg,rgba(31,106,91,.09),transparent 65%)}
+    .update-pill{display:inline-block;margin-left:5px;padding:3px 7px;border-radius:999px;font-size:.66rem;font-weight:800;background:rgba(31,106,91,.12);color:var(--green)}
+    @media(max-width:460px){.update-banner{display:block}.update-banner a{margin-top:12px;max-width:170px}}
     .hidden{display:none!important}
     .empty{padding:28px;text-align:center;color:var(--muted)}
 
@@ -331,6 +342,15 @@
   <div class="notice glass">
     <div class="dot"></div>
     <div><strong>Taichung travel rule:</strong> walk within compact neighbourhoods; use taxi/Uber for cross-district legs. MRT only when it genuinely saves time.</div>
+  </div>
+
+  <div class="update-banner glass">
+    <div>
+      <span class="mark">Latest itinerary update · 17 Oct 2026</span><br>
+      <strong>4 December: Fuhong Beef Noodles + Chiang Kai-shek Memorial Hall</strong>
+      <p>07:30 breakfast → 09:00–11:00 memorial → 16:36 target HSR departure</p>
+    </div>
+    <a href="#day-4" id="jump4">View 4 Dec ↓</a>
   </div>
 
   <div class="section-head">
@@ -487,12 +507,12 @@ function render(){
     if(!matchesText || !matchesFilter) return;
     visibleCount++;
 
-    const isOpen = i < 2 ? " open" : "";
-    html += `<article class="day-card glass${isOpen}" data-index="${i}">
+    const isOpen = i < 3 ? " open" : "";
+    html += `<article class="day-card glass${isOpen}${i === 2 ? " new-day" : ""}" id="day-${d.date.split(" ")[0]}" data-index="${i}">
       <div class="day-head" onclick="toggleDay(${i})">
         <div class="day-title">
           <div class="date-badge"><div><strong>${esc(d.date.split(" ")[0])}</strong><br><span>${esc(d.date.split(" ")[1])}</span></div></div>
-          <div><h3>${esc(d.title)}</h3><p>${esc(d.dow)} · ${esc(d.city)}</p></div>
+          <div><h3>${esc(d.title)}${i === 2 ? `<span class="update-pill">UPDATED</span>` : ""}</h3><p>${esc(d.dow)} · ${esc(d.city)}</p></div>
         </div>
         <div class="toggle">⌄</div>
       </div>
@@ -537,6 +557,16 @@ document.querySelectorAll(".chip").forEach(btn=>{
   });
 });
 document.getElementById("searchInput").addEventListener("input",render);
+document.getElementById("jump4").addEventListener("click", (event)=>{
+  event.preventDefault();
+  document.getElementById("searchInput").value="";
+  activeFilter="all";
+  document.querySelectorAll(".chip").forEach(b=>b.classList.toggle("active",b.dataset.filter==="all"));
+  render();
+  const card=document.getElementById("day-4");
+  card.classList.add("open");
+  card.scrollIntoView({behavior:"smooth",block:"start"});
+});
 
 let allExpanded = false;
 document.getElementById("expandBtn").addEventListener("click",()=>{
